@@ -3,7 +3,7 @@
   "DataSource": {
     "Type": "Folder",
     "Version": 1,
-    "FolderPath": "D:\\Skrivebord\\Ny Data\\Machinelerning hjemme data\\Machinelearning data\\Data Versuib 3"
+    "FolderPath": "C:\\Users\\renep\\Desktop\\Ny mappe (4)\\Machinelearning data\\Data Versuib 3"
   },
   "Environment": {
     "Type": "LocalCPU",
@@ -48,7 +48,7 @@
     },
     "Schema": "e0 * e1 * e2",
     "MetricName": "MicroAccuracy",
-    "ModelFilePath": "C:\\Users\\renep\\source\\repos\\ModelTraining\\MLModel1.mlnet"
+    "ModelFilePath": "C:\\Users\\renep\\source\\repos\\rene069\\MachinelearningModelTraining\\MLModel1_ConsoleApp3\\Dead.mlnet"
   },
   "Type": "TrainingConfig",
   "Version": 4,

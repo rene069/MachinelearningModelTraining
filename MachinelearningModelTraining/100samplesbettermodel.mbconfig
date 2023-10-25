@@ -48,7 +48,7 @@
     },
     "Schema": "e0 * e1 * e2",
     "MetricName": "MicroAccuracy",
-    "ModelFilePath": "C:\\Users\\renep\\source\\repos\\ModelTraining\\MachinelearningModelTraining\\100samplesbettermodel.mlnet"
+    "ModelFilePath": "C:\\Users\\renep\\source\\repos\\rene069\\MachinelearningModelTraining\\MachinelearningModelTraining\\100samplesbettermodel.mlnet"
   },
   "Type": "TrainingConfig",
   "Version": 4,

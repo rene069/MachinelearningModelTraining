@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="3.0.0-preview.23266.6" />
     <PackageReference Include="Microsoft.ML.Vision" Version="3.0.0-preview.23266.6" />
-    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.3.1" />
+    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.11.4" />
   </ItemGroup>
   <ItemGroup>
     <None Update="100samples81Percent.mlnet">
