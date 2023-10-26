@@ -4,34 +4,35 @@
 
 <div class="mb-3">
     <label for="imagePath" class="form-label">Billede:</label>
-    <InputFile  Id="imagePath" accept=".jpg,.jpeg,.png" OnChange="@HandleFileSelected" class="form-control" />
-    <button @onclick="Predict">Predict</button>
+    <InputFile Id="imagePath" accept=".jpg,.jpeg,.png" OnChange="@HandleFileSelected" class="form-control" />
+    <button class="btn btn-primary mt-2 mb-2" @onclick="Predict">Predict</button>
 </div>
 @if (imagePath != null)
 {
-    <div class="mb-3">
-        <img style="height: 400px; width: 400px;" src="@imagePath" />
-    </div>
-    <div>
-        @foreach (var item in Scores)
-        {
-           <p>@item</p>
-        }
+    <div class="row">
+        <div class="mb-3 col-4">
+            <img style="height: 400px; width: 400px;" src="@imagePath" />
+        </div>
+        <div class="col-4">
+            @foreach (var item in Scores)
+            {
+                <p>@item</p>
+            }
+        </div>
     </div>
 }
 
 @code {
-    //private InputFile? inputFile;
+
     private IBrowserFile selectedFile;
     private string imagePath;
-    private string? bytes;
+    private byte[]? bytes;
     long maxAllowedSize = 2000000000; //2GB
 
     public List<string> Scores { get; set; } = new();
 
     private async void HandleFileSelected(InputFileChangeEventArgs e)
     {
-
         try
         {
             string[] allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
@@ -48,7 +49,7 @@
                 using var ms = new MemoryStream();
                 await selectedFile.OpenReadStream(maxAllowedSize).CopyToAsync(ms);
                 var filebytes = ms.ToArray();
-                bytes = Convert.ToBase64String(filebytes);
+                bytes = filebytes;
                 imagePath = $"data:{format};base64,{Convert.ToBase64String(ms.ToArray())}";
             }
             StateHasChanged();
@@ -62,16 +63,18 @@
     private async void Predict()
     {
         Scores = new();
-        var imageBytes = Convert.FromBase64String(bytes);
         _150SamplesFinal.ModelInput sampleData = new()
             {
-                ImageSource = imageBytes
+                ImageSource = bytes
             };
         var sortedScores = _150SamplesFinal.PredictAllLabels(sampleData);
 
-        foreach (var item in sortedScores)
+        foreach (var item in sortedScores.Take(5))
         {
-            Scores.Add($"Name: {item.Key}\t Score: {item.Value}");
+
+            Scores.Add($"Name: {item.Key}, Score: {Math.Round(item.Value * 100)}%");
+
+
         }
     }
 
