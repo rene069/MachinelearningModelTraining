@@ -1,20 +1,22 @@
 
+
 # Pokemon Detector Using Machine Learning
 
 ## Task
 
-The goal of this project is to create a website that can determine if an uploaded picture corresponds to any of the 151 Pokémon from Generation 1. If the initial model is uncertain about the result, the user will have the opportunity to provide input to improve the accuracy of the classification.
+The goal of this project is to create a website that can determine if an uploaded picture corresponds to any of the 151 Pokémon from Generation 1.
 
 ## Dataset
 
 The dataset used for this project consists of images of Pokémon from Generation 1. Additional dataset for Pokémon statistics has been compiled, excluding data from Generations 2 to 9.
-
 [DataSet For Gen 1 Images](https://www.kaggle.com/datasets/echometerhhwl/pokemon-gen-1-38914)
 
 
 ## Possible Version 2
 
 A potential enhancement for the future is to expand the model to include Pokémon from later generations (Gen 2 and onwards) to create a more comprehensive Pokémon detection system.
+
+and If the initial model is uncertain about the result, the user will have the opportunity to provide input to improve the accuracy of the classification.
 
 ## ChangeLog
 
